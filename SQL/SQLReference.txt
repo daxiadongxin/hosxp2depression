@@ -1,0 +1,239 @@
+select * from ovst       where vn = 531012005840
+
+select hcode,cid,hn,pname,fname,lname,moopart,tmbpart,amppart,chwpart,pttype,patient.* from patient where hn = 0199200
+
+select hn,pttype,pttypeno,begindate,expiredate from pttypeno  where hn =  0199200
+
+select patient.hn,patient.fname,patient.lname,birthday, from patient left outer join ovst on  patient.hn = ovst.hn  where ovst.vn =  531012005840
+
+select patient.hn,patient.fname,patient.lname,birthday,pttype from depression_screen  
+left outer join ovst on  depression_screen.vn = ovst.vn 
+left outer join patient on ovst.hn = patient.hn
+
+##################SQL for select Depress Screen Person in HOSxP#####################################
+select patient.cid,patient.hn,patient.pname,patient.fname,patient.lname,birthday,(datediff(now(),birthday) div 365) as age,pttype.nhso_code,pttype.name,vn_stat.pttypeno,vn_stat.pttype_begin,vn_stat.pttype_expire,patient.sex,patient.addrpart,
+patient.moopart,patient.tmbpart,patient.amppart,patient.chwpart,patient.clinic,vn_stat.pdx 
+from depression_screen  
+left outer join ovst on  depression_screen.vn = ovst.vn  
+left outer join patient on ovst.hn = patient.hn 
+left outer join pttype on patient.pttype = pttype.pttype 
+left outer join vn_stat on depression_screen.vn = vn_stat.vn 
+where ((datediff(now(),birthday) div 365) >= 60) and pttype_begin <> '' and pttype_begin is not null and pttype_expire <> ''  and pttype_expire is not null  and vn_stat.pttypeno is not  null and vn_stat.pttypeno <> '' 
+#####################################################################################################
+
+##################SQL for select Depress Screen 2Q Score Detail in HOSxP#####################################
+select depression_screen_evaluate_id,patient.cid,screen_datetime,concat(if(feel_depression_2_week='Y',1,0),if(feel_boring_2_week='Y',1,0)) as detail2q, (if(feel_depression_2_week='Y',1,0)+if(feel_boring_2_week='Y',1,0))  as score2q 
+from depression_screen 
+left join vn_stat on depression_screen.vn = vn_stat.vn
+left join patient on vn_stat.hn = patient.hn
+order by patient.cid,depression_screen_evaluate_id
+#####################################################################################################
+
+
+##################SQL for select Depress Screen 9Q 8Q Score Detail in HOSxP#####################################
+SELECT
+depression_screen.depression_screen_evaluate_id AS `time`,
+patient.cid,
+depression_screen.screen_datetime AS screendate,
+concat(depression_screen.score_9q_1,depression_screen.score_9q_2,depression_screen.score_9q_3,depression_screen.score_9q_4,depression_screen.score_9q_5,depression_screen.score_9q_6,depression_screen.score_9q_7,depression_screen.score_9q_8,depression_screen.score_9q_9) AS detail9q,
+(depression_screen.score_9q_1+ depression_screen.score_9q_2+ depression_screen.score_9q_3+ depression_screen.score_9q_4+ depression_screen.score_9q_5+ depression_screen.score_9q_6+ depression_screen.score_9q_7+ depression_screen.score_9q_8+ depression_screen.score_9q_9) AS score9q,
+concat(if(depression_screen.score_8q_1>0,'1','0'),if(depression_screen.score_8q_2>0,'1','0'),if(depression_screen.score_8q_4>0,'1','0'),if(depression_screen.score_8q_5>0,'1','0'),if(depression_screen.score_8q_6>0,'1','0'),if(depression_screen.score_8q_7>0,'1','0'),if(depression_screen.score_8q_8>0,'1','0'),if(depression_screen.score_8q_9>0,'1','0')) AS detail8q,
+(if(depression_screen.score_8q_1>0,1,0)+if(depression_screen.score_8q_2>0,2,0)+if(depression_screen.score_8q_4>0,6,0)+if(depression_screen.score_8q_5>0,8,0)+if(depression_screen.score_8q_6>0,9,0)+if(depression_screen.score_8q_7>0,4,0)+if(depression_screen.score_8q_8>0,10,0)+if(depression_screen.score_8q_9>0,4,0)) AS score8q,
+'110000000' AS caresdetail,
+0 AS diag,
+1 AS dstatus
+from depression_screen 
+left join vn_stat on depression_screen.vn = vn_stat.vn
+left join patient on vn_stat.hn = patient.hn
+where patient.cid = 3670500180317
+order by patient.cid,depression_screen_evaluate_id
+
+#####################################################################################################
+INSERT INTO tbPerson
+====================================================================================================
+INSERT INTO tbPerson
+                      (pcucode, cid, prename, firstname, lastname, cardtype, cardid, mfgdate, expdate, birthday, gender, village, address, subdistrict, district, province, r1, r2, r3, r4, r5, ro, 
+                      lastupdate, onserver)
+VALUES     ('11266', '3670500618975', 'นาง', 'หนูรินทร์', 'พรหมบวช', '77', 'ท7738504888', CONVERT(DATETIME, '2006-09-17 00:00:00', 102), CONVERT(DATETIME, 
+                      '2056-10-01 00:00:00', 102), CONVERT(DATETIME, '1941-07-01 00:00:00', 102), 2, '5', '100', '05', '05', '67', 0, 0, 0, 0, 0, '0000000', CONVERT(DATETIME, 
+                      '2011-02-14 00:00:00', 102), 1)       
+                      
+Select Data tbPerson
+====================================================================================================
+Select Data tbPerson
+SELECT p.* FROM tbPerson p INNER JOIN tbScreen s ON p.cid=s.cid GROUP BY p.pcucode, p.cid, p.prename, p.firstname, p.lastname, p.birthday, p.gender, p.address, p.province, p.district, p.subdistrict, p.village, p.cardid, p.cardtype, p.mfgdate, p.expdate, p.r1, p.r2, p.r3, p.r4, p.r5, p.ro, p.lastupdate, p.onserver HAVING p.onserver='1' AND p.pcucode=@pcucode"
+                      
+                      
+INSERT INTO Depress_Person
+====================================================================================================                      
+INSERT INTO depres_person(offid,hn,prename,firstname,lastname,cid,sexid,birthdate,address, villid,subdistid,distid,provid,registdate,username,lastupdate,cardno,cardid,beingdate, expdate,r1,r2,r3,r4,r5,ro,onserver) VALUES(@pcucode,'',@prename,@firstname,@lastname,@cid,@gender,@birthday,@address,@village,@subdistrict,@district,@province,@registdate,@username,@lastupdate,@cardtype,@cardid,@mfgdate,@expdate,@r1,@r2,@r3,@r4,@r5,@ro,@onserver)
+UPDATE depres_person SET prename=@prename,firstname=@firstname,lastname=@lastname,birthdate=@birthday,sexid=@gender,address=@address,provid=@province,distid=@district,subdistid=@subdistrict,villid=@village,cardid=@cardid,cardno=@cardtype,beingdate=@mfgdate,expdate=@expdate,r1=@r1,r2=@r2,r3=@r3,r4=@r4,r5=@r5,ro=@ro,lastupdate=@lastupdate,onserver=@onserver WHERE cid=@cid AND offid=@pcucode                      
+
+@cid= row.Item("cid")
+@pcucode= row.Item("pcucode")
+@prename= row.Item("prename")
+@firstname= row.Item("firstname")
+@lastname= row.Item("lastname")
+If (time = DateTime.MinValue) Then
+  @birthday= Nothing)
+Else
+  @birthday= time)
+End If
+@gender= row.Item("gender")
+@address= row.Item("address")
+@province= row.Item("province").ToString)
+@district= (row.Item("province").ToString & row.Item("district").ToString)
+@subdistrict= (row.Item("province").ToString & row.Item("district").ToString & row.Item("subdistrict").ToString)
+@village= row.Item("village")
+@cardid= row.Item("cardid")
+@cardtype= row.Item("cardtype")
+If (time2 = DateTime.MinValue) Then
+  @mfgdate= Nothing)
+Else
+  @mfgdate= time2)
+End If
+If (time3 = DateTime.MinValue) Then
+  @expdate= Nothing)
+Else
+  @expdate= time3)
+End If
+@r1= row.Item("r1")
+@r2= row.Item("r2")
+@r3= row.Item("r3")
+@r4= row.Item("r4")
+@r5= row.Item("r5")
+@ro= row.Item("ro")
+@username= row.Item("pcucode")
+@registdate= DateTime.Now)
+If (time4 = DateTime.MinValue) Then
+  @lastupdate= Nothing)
+Else
+  @lastupdate= time4)
+End If
+@onserver= "1")
+
+Select Data tbScreen
+====================================================================================================
+SELECT * FROM tbScreen WHERE cid=@cid"
+
+INSERT INTO depres_person_2q_new
+====================================================================================================   
+SELECT * FROM depres_person WHERE cid=@cid AND offid=@pcucode
+INSERT INTO depres_person_2q_new(time,offid,cid,visitdate,service_offid,screendate,detail2q,qscore1,qscore2,score2q,username,lastupdate) VALUES(@time,@pcucode,@cid,@screendate,@pcucode,@screendate,@detail2q,@s1,@s2,@score2q,@pcucode,@lastupdate)
+UPDATE depres_person_2q_new SET offid=@pcucode,screendate=@screendate, detail2q=@detail2q, score2q=@score2q,visitdate=@screendate,service_offid=@pcucode,qscore1=@s1,qscore2=@s2,lastupdate=@lastupdate,username=@pcucode,screendate=@screendateWHERE time=@time AND pcucode=@pcucode AND cid=@cid
+
+@time = row2.Item("time")                                        
+@cid = row2.Item("cid")
+@pcucode = Me.tbprogramevalue.Rows.Item(0).Item("pcucode")
+If (time5 = DateTime.MinValue) Then
+ @screendate = Nothing)
+Else
+  @screendate = time5)
+End If
+@detail2q = row2.Item("detail2q")
+@s1 = row2.Item("detail2q").ToString.Substring(0, 1)
+@s2 = row2.Item("detail2q").ToString.Substring(1, 1)
+@score2q = row2.Item("score2q")
+@lastupdate = DateTime.Now)
+
+
+Select Data tbScreen
+====================================================================================================
+SELECT * FROM tbScren WHERE cid=@cid
+
+
+INSERT INTO depres_person_2q_new 
+====================================================================================================   
+SELECT * FROM depres_person_2q_new WHERE time=@time AND cid=@cid AND pcucode=@pcucode
+INSERT INTO depres_person_2q_new(time,offid,cid,visitdate,service_offid,screendate,detail2q,qscore1,qscore2,score2q,username,lastupdate) VALUES(@time,@pcucode,@cid,@screendate,@pcucode,@screendate,@detail2q,@s1,@s2,@score2q,@pcucode,@lastupdate)
+UPDATE depres_person_2q_new SET offid=@pcucode,screendate=@screendate, detail2q=@detail2q, score2q=@score2q,visitdate=@screendate,service_offid=@pcucode,qscore1=@s1,qscore2=@s2,lastupdate=@lastupdate,username=@pcucode,screendate=@screendateWHERE time=@time AND pcucode=@pcucode AND cid=@cid
+
+@time = row2.Item("time")                                        
+@cid = row2.Item("cid")
+@pcucode = Me.tbprogramevalue.Rows.Item(0).Item("pcucode")
+If (time5 = DateTime.MinValue) Then
+ @screendate = Nothing)
+Else
+  @screendate = time5)
+End If
+@detail2q = row2.Item("detail2q")
+@s1 = row2.Item("detail2q").ToString.Substring(0, 1)
+@s2 = row2.Item("detail2q").ToString.Substring(1, 1)
+@score2q = row2.Item("score2q")
+@lastupdate = DateTime.Now)
+
+
+Select Data tbFollowup
+====================================================================================================
+SELECT * FROM tbFollowup WHERE cid=@cid
+
+INSERT INTO depres_person_9q
+====================================================================================================   
+SELECT * FROM depres_person_9q WHERE cid=@cid AND time=@time AND visitdate=DATE(@screendate) AND offid=@pcucode
+INSERT INTO depres_person_9q(time,offid,cid,visitdate,service_offid,qscore1,qscore2,qscore3,qscore4,qscore5,qscore6,qscore7,qscore8,qscore9,username,lastupdate) VALUES(@time,@pcucode,@cid,@screendate,@service_offid,@q1,@q2,@q3,@q4,@q5,@q6,@q7,@q8,@q9,@username,@lastupdate)
+UPDATE depres_person_2q_new SET offid=@pcucode,screendate=@screendate, detail2q=@detail2q, score2q=@score2q,visitdate=@screendate,service_offid=@pcucode,qscore1=@s1,qscore2=@s2,lastupdate=@lastupdate,username=@pcucode,screendate=@screendateWHERE time=@time AND pcucode=@pcucode AND cid=@cid
+
+
+@time =  row2.Item("time"))
+@cid =  row2.Item("cid"))
+@pcucode =  Me.tbprogramevalue.Rows.Item(0).Item("pcucode"))
+If (time5 = DateTime.MinValue) Then
+Else
+    @screendate =  time5)
+End If
+@detail2q =  row2.Item("detail2q"))
+@s1 =  row2.Item("detail2q").ToString.Substring(0, 1))
+@s2 =  row2.Item("detail2q").ToString.Substring(1, 1))
+@score2q =  row2.Item("score2q"))
+@lastupdate =  DateTime.Now)
+
+INSERT INTO depres_person_8q
+====================================================================================================   
+SELECT * FROM depres_person_8q WHERE cid=@cid AND time=@time AND visitdate=DATE(@screendate) AND offid=@pcucode
+INSERT INTO depres_person_8q(time,offid,cid,visitdate,service_offid,qscore1,qscore2,qscore3,qscore4,qscore5,qscore6,qscore7,qscore8,8qscore,username,lastupdate) VALUES(@time,@pcucode,@cid,@screendate,@service_offid,@q1,@q2,@q3,@q4,@q5,@q6,@q7,@q8,@score8q,@username,@lastupdate)"
+UPDATE depres_person_8q SET qscore1=@q1,qscore2=@q2,qscore3=@q3,qscore4=@q4,qscore5=@q5,qscore6=@q6,qscore7=@q7,qscore8=@q8,8qscore=@score8q, lastupdate=@lastupdate, service_offid=@service_offid,username=@username WHERE time=@time AND cid=@cid AND offid=@pcucode AND visitdate=DATE(@screendate)"
+
+@time =row3.Item("time")
+@cid =row3.Item("cid")
+@pcucode =Me.tbprogramevalue.Rows.Item(0).Item("pcucode")
+@service_offid =Me.tbprogramevalue.Rows.Item(0).Item("pcucode")
+@username =Me.tbprogramevalue.Rows.Item(0).Item("pcucode")
+If (time5 = DateTime.MinValue) Then
+    @screendate =Nothing)
+Else
+    @screendate =time5.Date)
+End If
+@q1 =row3.Item("detail8q").ToString.Substring(0, 1))
+@q2 =row3.Item("detail8q").ToString.Substring(1, 1))
+@q3 =row3.Item("detail8q").ToString.Substring(2, 1))
+@q4 =row3.Item("detail8q").ToString.Substring(3, 1))
+@q5 =row3.Item("detail8q").ToString.Substring(4, 1))
+@q6 =row3.Item("detail8q").ToString.Substring(5, 1))
+@q7 =row3.Item("detail8q").ToString.Substring(6, 1))
+@q8 =row3.Item("detail8q").ToString.Substring(7, 1))
+@score8q =row3.Item("score8q").ToString)
+@lastupdate =DateTime.Now)
+
+
+
+INSERT INTO depres_person_diag
+====================================================================================================   
+SELECT * FROM depres_person_diag WHERE cid=@cid AND time=@time AND visitdate=DATE(@screendate) AND offid=@pcucode
+INSERT INTO depres_person_diag(time,offid,cid,visitdate,service_offid,diseaseid,statusid,suggestion,username,lastupdate) VALUES(@time,@pcucode,@cid,@screendate,@service_offid,@diag,@dstatus,@comment,@username,@lastupdate)
+UPDATE depres_person_diag SET diseaseid=@diag, statusid=@dstatus, suggestion=@comment, lastupdate=@lastupdate, service_offid=@service_offid,username=@username WHERE time=@time AND cid=@cid AND offid=@pcucode AND visitdate=DATE(@screendate)
+
+@time= row3.Item("time")
+@cid =  row3.Item("cid")
+@pcucode = Me.tbprogramevalue.Rows.Item(0).Item("pcucode")
+@service_offid = Me.tbprogramevalue.Rows.Item(0).Item("pcucode")
+@username = Me.tbprogramevalue.Rows.Item(0).Item("pcucode")
+If (time5 = DateTime.MinValue) Then
+    @screendate =  Nothing)
+Else
+    @screendate = time5.Date)
+End If
+@diag = row3.Item("diag").ToString)
+@dstatus = row3.Item("dstatus").ToString)
+@comment = row3.Item("comment").ToString)
+@lastupdate = DateTime.Now)
+

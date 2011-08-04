@@ -1,0 +1,7 @@
+select * from ovst       where vn = 531012005840
+
+select hcode,cid,hn,pname,fname,lname,moopart,tmbpart,amppart,chwpart,pttype,patient.* from patient where hn = 0199200
+
+select hn,pttype,pttypeno,begindate,expiredate from pttypeno  where hn =  0199200
+
+select patient.hn,patient.fname,patient.lname,birthday, from patient left outer join ovst on  patient.hn = ovst.hn  where ovst.vn =  531012005840
