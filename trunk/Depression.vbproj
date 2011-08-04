@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ADC61903-A7D7-4FDC-8B7F-E46C4D657BB2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Depression.My.MyApplication</StartupObject>
+    <RootNamespace>Depression</RootNamespace>
+    <AssemblyName>Depression</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ApplicationIcon>Security.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Depression.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Depression.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Crypto">
+      <HintPath>..\..\..\..\..\..\DotNet Project Wichian\Crypto\Crypto\bin\Release\Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a" />
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.Win.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.OfficeSkins.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a" />
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v10.2.Core, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v10.2.Reporting.Extensions, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v10.2.Core, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="FastReport, Version=1.6.17.0, Culture=neutral, PublicKeyToken=9e2f11070db1b41c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Components\F_R_1_6_17\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars, Version=1.6.17.0, Culture=neutral, PublicKeyToken=9e2f11070db1b41c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\FastReport.Bars\1.6.17.0__9e2f11070db1b41c\FastReport.Bars.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.TextEditor">
+      <HintPath>..\..\..\..\..\..\DotNet Project Wichian\PNQueryTools\bin\Debug\ICSharpCode.TextEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox1.Designer.vb">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AboutBox1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class\ClsAppconfigFileSetting.vb" />
+    <Compile Include="Class\ClsSQLhelper.vb" />
+    <Compile Include="Dataset\DSPerson.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPerson.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\DSPerson.vb">
+      <DependentUpon>DSPerson.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DlgAbout.Designer.vb">
+      <DependentUpon>DlgAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DlgAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCheckOnlinePatient.Designer.vb">
+      <DependentUpon>frmCheckOnlinePatient.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCheckOnlinePatient.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChkCard.Designer.vb">
+      <DependentUpon>frmChkCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChkCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChkPerson.Designer.vb">
+      <DependentUpon>frmChkPerson.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChkPerson.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChkService.Designer.vb">
+      <DependentUpon>frmChkService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChkService.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDBSetting.designer.vb">
+      <DependentUpon>frmDBSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDBSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDebug.designer.vb">
+      <DependentUpon>frmDebug.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDebug.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHOSxPScreen.Designer.vb">
+      <DependentUpon>frmHOSxPScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHOSxPScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmmain.Designer.vb">
+      <DependentUpon>frmmain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmmain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOffice.Designer.vb">
+      <DependentUpon>frmOffice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOffice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPersoninfo.Designer.vb">
+      <DependentUpon>frmPersoninfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPersoninfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPersonList.Designer.vb">
+      <DependentUpon>frmPersonList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPersonList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreviewReport.designer.vb">
+      <DependentUpon>frmPreviewReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPreviewReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportList.designer.vb">
+      <DependentUpon>frmReportList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportSQL.designer.vb">
+      <DependentUpon>frmReportSQL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportSQL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmScreen.Designer.vb">
+      <DependentUpon>frmScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmscreenlist.Designer.vb">
+      <DependentUpon>frmscreenlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmscreenlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmsql.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmsql.Designer.vb">
+      <DependentUpon>frmsql.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmtest.Designer.vb">
+      <DependentUpon>frmtest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmtest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateOffice.Designer.vb">
+      <DependentUpon>frmUpdateOffice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateOffice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpgradeStructure.Designer.vb">
+      <DependentUpon>frmUpgradeStructure.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpgradeStructure.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsgBoxImport.Designer.vb">
+      <DependentUpon>MsgBoxImport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MsgBoxImport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Class\mysqlhelper.vb" />
+    <Compile Include="Class\Pn_Framework.vb" />
+    <Compile Include="frmRegistration.Designer.vb">
+      <DependentUpon>frmRegistration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.vb">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgAbout.resx">
+      <DependentUpon>DlgAbout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCheckOnlinePatient.resx">
+      <DependentUpon>frmCheckOnlinePatient.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChkCard.resx">
+      <DependentUpon>frmChkCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChkPerson.resx">
+      <DependentUpon>frmChkPerson.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChkService.resx">
+      <DependentUpon>frmChkService.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDBSetting.resx">
+      <DependentUpon>frmDBSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDebug.resx">
+      <DependentUpon>frmDebug.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHOSxPScreen.resx">
+      <DependentUpon>frmHOSxPScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmmain.resx">
+      <DependentUpon>frmmain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOffice.resx">
+      <DependentUpon>frmOffice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersoninfo.resx">
+      <DependentUpon>frmPersoninfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonList.resx">
+      <DependentUpon>frmPersonList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPreviewReport.resx">
+      <DependentUpon>frmPreviewReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistration.resx">
+      <DependentUpon>frmRegistration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportList.resx">
+      <DependentUpon>frmReportList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportSQL.resx">
+      <DependentUpon>frmReportSQL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScreen.resx">
+      <DependentUpon>frmScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmscreenlist.resx">
+      <DependentUpon>frmscreenlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmsql.resx">
+      <DependentUpon>frmsql.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmtest.resx">
+      <DependentUpon>frmtest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateOffice.resx">
+      <DependentUpon>frmUpdateOffice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpgradeStructure.resx">
+      <DependentUpon>frmUpgradeStructure.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsgBoxImport.resx">
+      <DependentUpon>MsgBoxImport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Dataset\DSPerson.xsc">
+      <DependentUpon>DSPerson.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DSPerson.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPerson.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dataset\DSPerson.xss">
+      <DependentUpon>DSPerson.xsd</DependentUpon>
+    </None>
+    <None Include="Documents\คู่มือการใช้งาน.pdf" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+    <None Include="Resources\id_card2.png" />
+    <None Include="SQL\Export2Text.doc" />
+    <None Include="SQL\HOSxP Diagram.vsd" />
+    <None Include="Resources\column.png" />
+    <None Include="Resources\document_text.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\column1.png" />
+    <None Include="Security.gif" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\moph4.jpg" />
+    <Content Include="Release Note.txt" />
+    <Content Include="Resources\breakpoint.png" />
+    <None Include="Resources\breakpoint1.png" />
+    <Content Include="Resources\bullet_triangle_green.png" />
+    <None Include="Resources\bullet_triangle_green1.png" />
+    <None Include="Resources\contract.png" />
+    <None Include="Resources\Depress2011.jpg" />
+    <None Include="Resources\depressband.jpg" />
+    <None Include="Resources\depressband_D.jpg" />
+    <Content Include="Resources\document_48.png" />
+    <None Include="Resources\document_481.png" />
+    <None Include="Resources\document_view.png" />
+    <None Include="Resources\document_refresh.png" />
+    <None Include="Resources\document_add.png" />
+    <None Include="Resources\document_edit.png" />
+    <None Include="Resources\document_error.png" />
+    <None Include="Resources\Excel.jpg" />
+    <Content Include="Security.ico" />
+    <Content Include="SQL\SQLReference.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
