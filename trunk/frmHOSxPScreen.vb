@@ -93,6 +93,12 @@ Public Class frmHOSxPScreen
 
             End With
             BSSTCompleteRecords.Caption = DT_depression_screen.Rows.Count
+            If DT_depression_screen.Rows.Count <> 0 Then
+                BtnImport2Q.Enabled = True
+                BtnImportFollowup.Enabled = True
+                BtnImporttoDepress.Enabled = True
+            End If
+
 
         Catch ex As Exception
             With frmDebug
@@ -167,7 +173,7 @@ Public Class frmHOSxPScreen
 
         Catch ex As Exception
             With frmDebug
-                .MemoErr_Description.Text = " ex.Message"
+                .MemoErr_Description.Text = ex.Message
                 .lblFormName.Text = Me.Name
                 .lblFunctionName.Text = "Load_Data"
                 .MemoSQL.Text = strsql_uncomplete
@@ -616,28 +622,24 @@ Public Class frmHOSxPScreen
         End If
         Try
 
-       
-        For i = 0 To DT89Q.Rows.Count - 1
-            If i = DT89Q.Rows.Count Then Exit For
+            Dim DR As DataRow
+            For Each DR In DT89Q.Rows
+                DepressOffline_Status = Check_Depress_Status(DT_depression_screen.Rows(i).Item("hn").ToString)
 
-            DepressOffline_Status = Check_Depress_Status(DT_depression_screen.Rows(i).Item("hn").ToString)
-
-            With DT89Q.Rows(i)
-
-                    frmDebug.MemoCallStack.Text = " i = (" & i & "/" & DT89Q.Rows.Count - 1 & ")" & vbCrLf
-
-
+                With DR
+                    '    frmDebug.MemoCallStack.Text = " i = (" & i & "/" & DT89Q.Rows.Count - 1 & ")" & vbCrLf
                     frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " time = " & .Item("time").ToString & vbCrLf
-                frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " cid = " & .Item("cid").ToString & vbCrLf
-                frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " screendate = " & .Item("screendate").ToString & vbCrLf
-                frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " detail9q = " & .Item("detail9q").ToString & vbCrLf
-                frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " score9q = " & .Item("score9q") & vbCrLf
-                frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " detail8q = " & .Item("detail8q").ToString & vbCrLf
-                frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " score8q = " & .Item("score8q").ToString & vbCrLf
-                frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " DepressOffline_Status = " & DepressOffline_Status & vbCrLf
-                Insert_Followup(.Item("time"), .Item("cid").ToString, .Item("screendate").ToString, .Item("detail9q").ToString, .Item("score9q"), .Item("detail8q").ToString, .Item("score8q"), DepressOffline_Status)
-            End With
-        Next
+                    frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " cid = " & .Item("cid").ToString & vbCrLf
+                    frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " screendate = " & .Item("screendate").ToString & vbCrLf
+                    frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " detail9q = " & .Item("detail9q").ToString & vbCrLf
+                    frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " score9q = " & .Item("score9q") & vbCrLf
+                    frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " detail8q = " & .Item("detail8q").ToString & vbCrLf
+                    frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " score8q = " & .Item("score8q").ToString & vbCrLf
+                    frmDebug.MemoCallStack.Text = frmDebug.MemoCallStack.Text & " DepressOffline_Status = " & DepressOffline_Status & vbCrLf
+                    Insert_Followup(.Item("time"), .Item("cid").ToString, .Item("screendate").ToString, .Item("detail9q").ToString, .Item("score9q"), .Item("detail8q").ToString, .Item("score8q"), DepressOffline_Status)
+                End With
+            Next
+
         Catch ex As Exception
             With frmDebug
                 Me.Cursor = Cursors.Arrow
@@ -665,7 +667,10 @@ Public Class frmHOSxPScreen
     End Sub
 
     Private Sub BtnLoad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnLoad.Click
+
         Load_data()
+
+
     End Sub
 
     Private Sub Label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label2.Click
